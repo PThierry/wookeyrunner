@@ -10,7 +10,7 @@ run echo "deb http://deb.debian.org/debian/ buster contrib non-free" >> /etc/apt
 run apt-get update
 
 # debian packages dependencies
-run apt-get install -yq bash repo sudo git make python-pip python3-pip python-pyscard python-crypto openjdk-11-jdk maven ant curl zip unzip kconfig-frontends bzip2 python-sphinx coreutils fdisk wget gcc-arm-none-eabi
+run apt-get install -yq bash repo sudo git make python-pip python3-pip python-pyscard python-crypto openjdk-11-jdk maven ant curl zip unzip kconfig-frontends bzip2 python-sphinx coreutils fdisk wget gcc-arm-none-eabi python3-coverage
 
 # python dependencies (out of debian)
 run pip install intelhex
