@@ -32,19 +32,9 @@ run /tmp/gnat_install/install_package.sh /tmp/gnat-community-2018-20180524-arm-e
 # lcleaning
 run rm -rf /tmp/gnat*
 
-run groupadd build
-run useradd -d /build -ms /bin/bash -g build build;
-run usermod -a -G sudo build;
 
-# this is required to allow openocd, dfu-util and pcsc usage when interacting with the device and Javacards from Docker (see README)
-run /bin/dash -c 'echo "build    ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/build; \
-                  chmod 0440 /etc/sudoers.d/build'
-
-user build:build
-workdir /build
-
-# adding cross gcc and Gnat toolchains to the user PATH variable
-run echo "export PATH=/opt/adacore-arm-eabi/bin:/usr/local/bin:$PATH" > /build/.bashrc;
+# adding cross gcc and Gnat toolchains to the user PATH variable, system wide
+run echo "export PATH=/opt/adacore-arm-eabi/bin:/usr/local/bin:$PATH" > /etc/bash.bashrc;
 
 # overrideable
 cmd ["/bin/bash"]
